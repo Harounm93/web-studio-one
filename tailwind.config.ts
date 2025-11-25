@@ -47,8 +47,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "gradient-hero": "var(--gradient-hero)",
-        "gradient-accent": "var(--gradient-accent)",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -59,11 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        bg: "hsl(var(--bg))",
+        "bg-alt": "hsl(var(--bg-alt))",
+        "accent-color": "hsl(var(--accent-color))",
+        "accent-dark": "hsl(var(--accent-dark))",
+        "text-muted": "hsl(var(--text-muted))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "18px",
+        "2xl": "28px",
       },
       keyframes: {
         "accordion-down": {

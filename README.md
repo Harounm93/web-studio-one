@@ -1,73 +1,132 @@
-# Welcome to your Lovable project
+# Web Studio - Digital Web Agency
 
-## Project info
+A modern, professional website for a digital web agency specializing in custom websites, web applications, and digital solutions for small to mid-sized businesses.
 
-**URL**: https://lovable.dev/projects/5507ee52-0ee2-4a67-94be-e6cd40acfa10
+## 🚀 Features
 
-## How can I edit this code?
+- **Hero Section** - Compelling headline with tech-forward imagery and key metrics
+- **About Us** - Mission statement, expertise showcase, and trust builders
+- **Services** - Comprehensive service offerings including:
+  - Website Design & Development
+  - Web Applications
+  - E-Commerce Solutions
+  - Branding & Identity
+  - Ongoing Support & Maintenance
+- **Portfolio** - Case studies showcasing real projects and measurable results
+- **Process** - 5-step workflow from Discovery to Support
+- **Testimonials** - Client success stories and social proof
+- **Pricing** - Three transparent pricing packages plus custom solutions
+- **Contact** - Lead capture form with multiple contact methods
 
-There are several ways of editing your application.
+## 🎨 Design
 
-**Use Lovable**
+- Modern, clean, minimal aesthetic
+- Tech-forward blue color palette
+- Bold typography with excellent readability
+- Smooth animations and transitions
+- Fully mobile-responsive design
+- Conversion-focused layout
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5507ee52-0ee2-4a67-94be-e6cd40acfa10) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## 🛠 Technologies
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and dev server
+- **TypeScript** - Type-safe code
+- **React** - UI component library
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality React components
+- **Lucide React** - Beautiful icon library
 
-## How can I deploy this project?
+## 📦 Installation
 
-Simply open [Lovable](https://lovable.dev/projects/5507ee52-0ee2-4a67-94be-e6cd40acfa10) and click on Share -> Publish.
+```bash
+# Install dependencies
+npm install
 
-## Can I connect a custom domain to my Lovable project?
+# Start development server
+npm run dev
 
-Yes, you can!
+# Build for production
+npm run build
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Preview production build
+npm run preview
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🎯 Key Sections
+
+### Hero Section
+- Strong value proposition
+- Clear call-to-action buttons
+- Social proof with key metrics
+- Abstract tech illustration
+
+### Services
+Six core service offerings with detailed features:
+- Website Development
+- Website Design
+- Web Applications
+- E-Commerce
+- Branding
+- Ongoing Support
+
+### Portfolio
+Four detailed case studies featuring:
+- Project descriptions
+- Measurable results
+- Visual presentations
+- Client categories
+
+### Pricing
+Three structured packages:
+- **Starter** - £250 (5-page website)
+- **Professional** - £500 (10-page website with advanced features)
+- **Enterprise** - £750+ (Custom solutions)
+
+### Contact
+Comprehensive contact section with:
+- Multi-field lead capture form
+- Contact information
+- Office hours
+- Response time expectations
+
+## 🎨 Color Palette
+
+- **Primary Blue**: `hsl(217, 91%, 60%)` - Brand color for CTAs and accents
+- **Purple Accent**: `hsl(250, 84%, 54%)` - Gradient and highlights
+- **Dark Text**: `hsl(222, 47%, 11%)` - Primary text color
+- **Muted Text**: `hsl(215, 16%, 47%)` - Secondary text color
+- **Background**: `hsl(0, 0%, 100%)` - Clean white background
+- **Secondary BG**: `hsl(214, 32%, 97%)` - Subtle background variation
+
+## 🔥 Performance Features
+
+- Optimized animations with CSS transforms
+- Lazy loading for sections
+- Smooth scroll behavior
+- Responsive images and layouts
+- Fast page load times
+
+## 📱 Responsive Design
+
+Fully responsive across all devices:
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (< 768px)
+
+## 🤝 Contributing
+
+This is a client project template. Feel free to fork and customize for your own agency needs.
+
+## 📄 License
+
+This project is proprietary. All rights reserved.
+
+## 🙋‍♂️ Support
+
+For questions or support, contact us at hello@webstudio.com
+
+---
+
+Built with ❤️ by Web Studio Digital Agency
