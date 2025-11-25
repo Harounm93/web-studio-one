@@ -454,14 +454,14 @@ const Index = () => {
                   name: "Sarah Mitchell",
                   role: "CEO, TechStart Solutions",
                   company: "TechStart",
-                  text: "PixelForge transformed our outdated platform into a modern, user-friendly experience. Our user engagement tripled within the first month after launch!",
+                  text: "Web Studio transformed our outdated platform into a modern, user-friendly experience. We saw significant improvements in user engagement after launch!",
                   rating: 5
                 },
                 {
                   name: "James Chen",
                   role: "Founder, GreenLeaf Market",
                   company: "GreenLeaf",
-                  text: "From day one, the team understood our vision. They delivered an e-commerce solution that exceeded our expectations and helped us reach $500K in revenue.",
+                  text: "From day one, the team understood our vision. They delivered an e-commerce solution that exceeded our expectations and significantly grew our online sales.",
                   rating: 5
                 },
                 {
