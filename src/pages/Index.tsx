@@ -334,7 +334,7 @@ const Index = () => {
                 <article key={i} className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
                   <div className={`h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <div className="text-white text-6xl font-bold opacity-20">{i + 1}</div>
+                      <div className="text-white text-6xl font-bold opacity-50">{i + 1}</div>
                     </div>
                     {/* Placeholder for project image */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
