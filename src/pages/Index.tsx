@@ -438,44 +438,23 @@ const Index = () => {
               {[
                 {
                   name: "Sarah Mitchell",
-                  role: "CEO, TechStart Solutions",
-                  company: "TechStart",
-                  text: "Web Studio transformed our outdated platform into a modern, user-friendly experience. We saw significant improvements in user engagement after launch!",
-                  rating: 5
-                },
-                {
-                  name: "James Chen",
-                  role: "Founder, GreenLeaf Market",
-                  company: "GreenLeaf",
-                  text: "From day one, the team understood our vision. They delivered an e-commerce solution that exceeded our expectations and significantly grew our online sales.",
+                  role: "CEO, CoreFit",
+                  company: "CoreFit",
+                  text: "Web Studio transformed our outdated website into a modern, user-friendly experience. The new brand identity and design have significantly improved our member engagement!",
                   rating: 5
                 },
                 {
                   name: "Emily Rodriguez",
-                  role: "Marketing Director, UrbanFit",
-                  company: "UrbanFit",
-                  text: "Professional, responsive, and incredibly talented. They didn't just build us a website—they created a complete digital experience for our members.",
-                  rating: 5
-                },
-                {
-                  name: "Michael Thompson",
-                  role: "CTO, CloudSync",
-                  company: "CloudSync",
-                  text: "The technical expertise and attention to detail were outstanding. Our web app handles thousands of concurrent users flawlessly thanks to their solid architecture.",
-                  rating: 5
-                },
-                {
-                  name: "Lisa Anderson",
-                  role: "Owner, Bella Boutique",
-                  company: "Bella",
-                  text: "Working with PixelForge was a breeze. They made the entire process smooth and stress-free, and our new site is absolutely gorgeous!",
-                  rating: 5
+                  role: "Owner, Maple & Mug",
+                  company: "Maple & Mug",
+                  text: "Working with Web Studio was fantastic. They didn't just redesign our menu and logo—they created a complete brand experience that truly represents our cafe.",
+                  rating: 4
                 },
                 {
                   name: "David Park",
-                  role: "VP Operations, InnovateTech",
+                  role: "Director, InnovateTech",
                   company: "InnovateTech",
-                  text: "Best investment we've made in our digital presence. The ongoing support and optimization has kept our site performing at peak levels month after month.",
+                  text: "Best investment we've made in our digital presence. Web Studio's ongoing support and optimization has kept our site performing at peak levels month after month.",
                   rating: 5
                 }
               ].map((testimonial, i) => (
@@ -502,7 +481,7 @@ const Index = () => {
             <div className="mt-12 text-center">
               <p className="text-text-muted mb-4">Trusted by businesses of all sizes</p>
               <div className="flex flex-wrap justify-center items-center gap-8 opacity-50">
-                {["TechStart", "GreenLeaf", "UrbanFit", "CloudSync", "InnovateTech", "Bella"].map((company, i) => (
+                {["CoreFit", "Maple & Mug", "InnovateTech"].map((company, i) => (
                   <div key={i} className="text-2xl font-bold text-foreground">{company}</div>
                 ))}
               </div>
