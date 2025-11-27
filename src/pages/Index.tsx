@@ -307,14 +307,16 @@ const Index = () => {
                   category: "Gym & Fitness",
                   desc: "Modern website with class booking system and member management portal.",
                   results: ["Enhanced brand identity", "Majority mobile traffic", "Improved search rankings"],
-                  color: "from-orange-500 to-red-500"
+                  color: "from-orange-500 to-red-500",
+                  link: "https://maple-mug-web.lovable.app"
                 },
                 {
                   title: "Maple & Mug",
                   category: "Cafe & Restaurant",
                   desc: "Updated menu designs, logo and website for a local artisan cafe.",
                   results: ["Improved SEO performance", "Increased click-through rate", "Enhanced brand visibility"],
-                  color: "from-amber-600 to-yellow-500"
+                  color: "from-amber-600 to-yellow-500",
+                  link: "https://maple-mug-web.lovable.app"
                 }
               ].map((project, i) => (
                 <article key={i} className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
@@ -338,9 +340,14 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
-                    <button className="text-accent-color font-semibold flex items-center gap-2 hover:gap-3 transition-all group-hover:text-accent-dark">
-                      View Case Study <ArrowRight className="w-4 h-4" />
-                    </button>
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-accent-color font-semibold flex items-center gap-2 hover:gap-3 transition-all group-hover:text-accent-dark"
+                    >
+                      View Live Site <ArrowRight className="w-4 h-4" />
+                    </a>
                   </div>
                 </article>
               ))}
