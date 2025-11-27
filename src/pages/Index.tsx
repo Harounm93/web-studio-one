@@ -253,9 +253,9 @@ const Index = () => {
                 },
                 {
                   icon: <ShoppingCart className="w-8 h-8" />,
-                  title: "E-Commerce Solutions",
-                  desc: "Complete online stores with secure payment processing, inventory management, and customer analytics.",
-                  features: ["Payment Gateway", "Cart System", "Admin Dashboard", "Analytics"]
+                  title: "Dashboards",
+                  desc: "Dynamic dashboards and engaging promotional displays to showcase your data and marketing content effectively.",
+                  features: ["Interactive Dashboards", "Promo Widgets", "Real-time Data", "Custom Displays"]
                 },
                 {
                   icon: <Rocket className="w-8 h-8" />,
@@ -303,32 +303,18 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "TechStart Solutions",
-                  category: "SaaS Platform",
-                  desc: "Complete redesign and development of a B2B SaaS platform serving thousands of users.",
-                  results: ["Significant increase in user engagement", "Reduced bounce rate by half", "Excellent user satisfaction scores"],
-                  color: "from-blue-500 to-cyan-500"
-                },
-                {
-                  title: "GreenLeaf Market",
-                  category: "E-Commerce Store",
-                  desc: "Custom e-commerce solution with inventory management and customer portal.",
-                  results: ["Strong revenue growth in first months", "Growing customer base", "High repeat purchase rate"],
-                  color: "from-green-500 to-emerald-500"
-                },
-                {
-                  title: "UrbanFit Gym",
-                  category: "Business Website",
+                  title: "CoreFit",
+                  category: "Gym & Fitness",
                   desc: "Modern website with class booking system and member management portal.",
-                  results: ["Doubled online bookings", "Majority mobile traffic", "Improved search rankings"],
+                  results: ["Enhanced brand identity", "Majority mobile traffic", "Improved search rankings"],
                   color: "from-orange-500 to-red-500"
                 },
                 {
-                  title: "CloudSync App",
-                  category: "Web Application",
-                  desc: "Real-time collaboration tool for distributed teams with custom features.",
-                  results: ["Multiple enterprise clients", "Excellent uptime reliability", "Successfully secured funding"],
-                  color: "from-purple-500 to-pink-500"
+                  title: "Maple & Mug",
+                  category: "Cafe & Restaurant",
+                  desc: "Updated menu designs, logo and website for a local artisan cafe.",
+                  results: ["Improved SEO performance", "Increased click-through rate", "Enhanced brand visibility"],
+                  color: "from-amber-600 to-yellow-500"
                 }
               ].map((project, i) => (
                 <article key={i} className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
@@ -423,14 +409,14 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-16 bg-gradient-primary rounded-3xl p-8 md:p-12 text-white text-center">
-              <h3 className="text-3xl font-bold mb-4">Ready to Get Started?</h3>
-              <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
+            <div className="mt-16 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-white text-center shadow-xl">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">Ready to Get Started?</h3>
+              <p className="text-white text-lg md:text-xl mb-6 max-w-2xl mx-auto drop-shadow">
                 Every great project begins with a conversation. Let's discuss your vision and create something amazing together.
               </p>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="px-8 py-4 rounded-full bg-white text-blue-600 font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                className="px-8 py-4 rounded-full bg-white text-blue-700 font-semibold text-lg shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 hover:scale-105"
               >
                 Book a Free Consultation
               </button>

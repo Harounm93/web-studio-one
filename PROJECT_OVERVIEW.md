@@ -24,7 +24,7 @@ Six comprehensive services:
 - **Website Development** - Custom sites, responsive, SEO optimized
 - **Website Design** - UI/UX, branding, wireframing
 - **Web Applications** - Custom features, API integration
-- **E-Commerce Solutions** - Payment gateway, cart, analytics
+- **Dashboard & Promo Displays** - Interactive dashboards, promo widgets, real-time data
 - **Branding & Identity** - Logo, brand guide, marketing materials
 - **Ongoing Support** - 24/7 monitoring, updates, optimization
 

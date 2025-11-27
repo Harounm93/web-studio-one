@@ -9,7 +9,7 @@ A modern, professional website for a digital web agency specializing in custom w
 - **Services** - Comprehensive service offerings including:
   - Website Design & Development
   - Web Applications
-  - E-Commerce Solutions
+  - Dashboard & Promo Displays
   - Branding & Identity
   - Ongoing Support & Maintenance
 - **Portfolio** - Case studies showcasing real projects and measurable results
