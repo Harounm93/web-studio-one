@@ -30,14 +30,14 @@ const Index = () => {
           </button>
 
           <button 
-            className="md:hidden text-2xl"
+            className="md:hidden text-2xl text-foreground hover:text-accent-color transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
 
-          <ul className={`${mobileMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row gap-8 text-sm absolute md:relative top-16 md:top-0 right-6 md:right-0 bg-white/98 md:bg-transparent p-6 md:p-0 rounded-2xl md:rounded-none shadow-elevated md:shadow-none border border-border md:border-0`}>
+          <ul className={`${mobileMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row gap-8 text-sm absolute md:relative top-16 md:top-0 right-6 md:right-0 bg-white md:bg-transparent p-6 md:p-0 rounded-2xl md:rounded-none shadow-elevated md:shadow-none border-2 border-gray-200 md:border-0`}>
             {[
               ["about", "About"],
               ["services", "Services"],
@@ -49,7 +49,7 @@ const Index = () => {
               <li key={id}>
                 <button
                   onClick={() => scrollToSection(id)}
-                  className="font-semibold text-text-muted hover:text-foreground relative group transition-colors"
+                  className="font-semibold text-foreground hover:text-accent-color relative group transition-colors w-full text-left"
                 >
                   {label}
                   <span className="absolute left-0 -bottom-1.5 w-0 h-0.5 bg-accent-color transition-all duration-300 group-hover:w-full rounded-full" />
