@@ -316,7 +316,7 @@ const Index = () => {
                   desc: "Updated menu designs, logo and website for a local artisan cafe.",
                   results: ["Improved SEO performance", "Increased click-through rate", "Enhanced brand visibility"],
                   color: "from-amber-600 to-yellow-500",
-                  link: "https://maple-mug-web.lovable.app"
+                  link: "https://maplecafe.netlify.app/"
                 }
               ].map((project, i) => (
                 <article key={i} className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
