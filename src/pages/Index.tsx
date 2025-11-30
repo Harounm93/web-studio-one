@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Menu, X, Code2, Palette, ShoppingCart, Headphones, Rocket, CheckCircle2, ArrowRight, Star, Mail, Phone, MapPin, Zap, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEmailJS } from "@/hooks/useEmailJS";
+import { toast } from "sonner";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { sendEmail, isLoading } = useEmailJS();
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -608,9 +611,34 @@ const Index = () => {
             <div className="grid md:grid-cols-5 gap-8">
               {/* Contact Form */}
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  alert("Thank you for your message! We'll get back to you within 24 hours.");
+                  const form = e.currentTarget; // Save reference before async operation
+                  const formData = new FormData(form);
+                  
+                  try {
+                    await sendEmail({
+                      name: formData.get('name') as string,
+                      email: formData.get('email') as string,
+                      company: formData.get('company') as string,
+                      service: formData.get('service') as string,
+                      budget: formData.get('budget') as string,
+                      message: formData.get('message') as string,
+                    });
+                    
+                    console.log('Form: Email sent successfully, showing success toast');
+                    toast.success("Message sent successfully!", {
+                      description: "Thank you! We'll get back to you within 24 hours.",
+                    });
+                    
+                    // Reset form
+                    form.reset();
+                  } catch (error) {
+                    console.error('Form: Caught error:', error);
+                    toast.error("Failed to send message", {
+                      description: "Please try again or contact us directly at digitalstudiodesigners@gmail.com",
+                    });
+                  }
                 }}
                 className="md:col-span-3 bg-white rounded-3xl p-8 shadow-soft border border-border"
               >
@@ -703,9 +731,10 @@ const Index = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 rounded-full bg-accent-color text-white font-semibold text-lg shadow-elevated hover:bg-accent-dark transition-all hover:shadow-xl hover:-translate-y-1"
+                  disabled={isLoading}
+                  className="w-full px-8 py-4 rounded-full bg-accent-color text-white font-semibold text-lg shadow-elevated hover:bg-accent-dark transition-all hover:shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                  Send Message
+                  {isLoading ? "Sending..." : "Send Message"}
                 </button>
               </form>
 
@@ -722,8 +751,8 @@ const Index = () => {
                       <Mail className="w-6 h-6 flex-shrink-0 mt-1" />
                       <div>
                         <div className="font-semibold mb-1">Email Us</div>
-                        <a href="mailto:hello@webstudio.com" className="text-white/90 hover:text-white">
-                          hello@webstudio.com
+                        <a href="mailto:digitalstudiodesigners@gmail.com" className="text-white/90 hover:text-white">
+                          digitalstudiodesigners@gmail.com
                         </a>
                       </div>
                     </div>
@@ -773,6 +802,22 @@ const Index = () => {
                       <strong className="text-foreground">Response Time:</strong> We typically respond to all inquiries within 24 hours during business days.
                     </p>
                   </div>
+                </div>
+
+                <div className="bg-secondary rounded-3xl p-8 border border-border">
+                  <h4 className="font-bold text-lg mb-3 text-foreground">Email Us</h4>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Mail className="w-5 h-5 text-accent-color" />
+                    <a 
+                      href="mailto:digitalstudiodesigners@gmail.com" 
+                      className="text-foreground hover:text-accent-color transition-colors font-medium"
+                    >
+                      digitalstudiodesigners@gmail.com
+                    </a>
+                  </div>
+                  <p className="text-sm text-text-muted mt-4">
+                    We're here to help! Send us an email anytime, and we'll get back to you as soon as possible.
+                  </p>
                 </div>
               </div>
             </div>

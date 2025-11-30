@@ -16,7 +16,7 @@ A modern, professional website for a digital web agency specializing in custom w
 - **Process** - 5-step workflow from Discovery to Support
 - **Testimonials** - Client success stories and social proof
 - **Pricing** - Three transparent pricing packages plus custom solutions
-- **Contact** - Lead capture form with multiple contact methods
+- **Contact** - Fully functional lead capture form with EmailJS integration
 
 ## 🎨 Design
 
@@ -37,12 +37,16 @@ This project is built with:
 - **Tailwind CSS** - Utility-first CSS framework
 - **shadcn/ui** - High-quality React components
 - **Lucide React** - Beautiful icon library
+- **EmailJS** - Contact form email delivery
 
 ## 📦 Installation
 
 ```bash
 # Install dependencies
 npm install
+
+# Configure EmailJS (see EMAILJS_SETUP.md for detailed instructions)
+# Create .env.local file with your EmailJS credentials
 
 # Start development server
 npm run dev
@@ -53,6 +57,22 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+## 📧 Email Setup
+
+The contact form uses EmailJS to deliver messages directly to your inbox. To set it up:
+
+1. Follow the detailed guide in [EMAILJS_SETUP.md](EMAILJS_SETUP.md)
+2. Create a free EmailJS account
+3. Configure your email service and template
+4. Add your credentials to `.env.local`
+5. Restart the dev server
+
+**Quick Start:**
+- Get 200 free emails per month
+- No backend required
+- Takes ~5 minutes to set up
+- See [EMAILJS_SETUP.md](EMAILJS_SETUP.md) for step-by-step instructions
 
 ## 🎯 Key Sections
 
@@ -86,7 +106,9 @@ Three structured packages:
 
 ### Contact
 Comprehensive contact section with:
-- Multi-field lead capture form
+- Multi-field lead capture form with EmailJS integration
+- Real-time form validation
+- Success/error notifications
 - Contact information
 - Office hours
 - Response time expectations
@@ -125,7 +147,7 @@ This project is proprietary. All rights reserved.
 
 ## 🙋‍♂️ Support
 
-For questions or support, contact us at hello@webstudio.com
+For questions or support, contact us at digitalstudiodesigners@gmail.com
 
 ---
 

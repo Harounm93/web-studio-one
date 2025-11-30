@@ -155,7 +155,7 @@ The company name is set to "Web Studio" throughout the site.
 
 #### Update Contact Info
 In the Contact Section, update:
-- Email: `hello@webstudio.com`
+- Email: `digitalstudiodesigners@gmail.com`
 - Phone: `+1 (234) 567-890`
 - Address: `123 Digital Avenue...`
 
