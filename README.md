@@ -17,6 +17,7 @@ A modern, professional website for a digital web agency specializing in custom w
 - **Testimonials** - Client success stories and social proof
 - **Pricing** - Three transparent pricing packages plus custom solutions
 - **Contact** - Fully functional lead capture form with EmailJS integration
+- **CMS** - Full content management through Decap CMS admin interface
 
 ## 🎨 Design
 
@@ -38,6 +39,7 @@ This project is built with:
 - **shadcn/ui** - High-quality React components
 - **Lucide React** - Beautiful icon library
 - **EmailJS** - Contact form email delivery
+- **Decap CMS** - Content management system
 
 ## 📦 Installation
 
@@ -73,6 +75,55 @@ The contact form uses EmailJS to deliver messages directly to your inbox. To set
 - No backend required
 - Takes ~5 minutes to set up
 - See [EMAILJS_SETUP.md](EMAILJS_SETUP.md) for step-by-step instructions
+
+## 📝 Content Management (CMS)
+
+This site uses **Decap CMS** for easy content management. Edit all content through a user-friendly web interface!
+
+### Accessing the CMS
+
+**Local Development:**
+```
+http://localhost:8080/admin
+```
+
+**Production (after deployment):**
+```
+https://yoursite.com/admin
+```
+
+### What You Can Manage
+
+- ✅ **Portfolio Projects** - Add/edit case studies
+- ✅ **Services** - Update service offerings
+- ✅ **Testimonials** - Manage client reviews
+- ✅ **Pricing** - Edit pricing packages
+- ✅ **Process Steps** - Update your workflow
+- ✅ **Site Settings** - Hero, about, contact info
+- ✅ **Company Info** - Branding and social links
+
+### Setup for Production
+
+1. Deploy to Netlify
+2. Enable Netlify Identity in dashboard
+3. Enable Git Gateway
+4. Invite team members
+5. Access `/admin` and start editing!
+
+**Full Guide:** See [CMS_GUIDE.md](CMS_GUIDE.md) for complete instructions
+
+### Content Files
+
+All content is stored as markdown files in the `content/` directory:
+```
+content/
+├── settings/       # Site and company settings
+├── portfolio/      # Portfolio projects
+├── services/       # Service offerings
+├── testimonials/   # Client testimonials
+├── pricing/        # Pricing packages
+└── process/        # Workflow steps
+```
 
 ## 🎯 Key Sections
 

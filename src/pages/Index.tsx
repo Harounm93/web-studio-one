@@ -3,15 +3,31 @@ import { Menu, X, Code2, Palette, ShoppingCart, Headphones, Rocket, CheckCircle2
 import { Button } from "@/components/ui/button";
 import { useEmailJS } from "@/hooks/useEmailJS";
 import { toast } from "sonner";
+import { useCMSContent } from "@/hooks/useCMSContent";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { sendEmail, isLoading } = useEmailJS();
+  const { sendEmail, isLoading: isEmailLoading } = useEmailJS();
+  const { content, isLoading: isContentLoading } = useCMSContent();
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
+
+  // Show loading state while content is being fetched
+  if (isContentLoading || !content) {
+    return (
+      <div className="min-h-screen bg-bg flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-accent-color border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-text-muted">Loading content...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const { siteSettings, portfolio, services, testimonials, pricing, process: processSteps } = content;
 
   return (
     <div className="min-h-screen bg-bg">
@@ -235,60 +251,34 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: <Code2 className="w-8 h-8" />,
-                  title: "Website Development",
-                  desc: "Custom-built websites optimized for performance, SEO, and conversions. From landing pages to complex multi-page sites.",
-                  features: ["Responsive Design", "SEO Optimized", "Fast Loading", "CMS Integration"]
-                },
-                {
-                  icon: <Palette className="w-8 h-8" />,
-                  title: "Website Design",
-                  desc: "Beautiful, user-centered designs that capture your brand identity and create memorable experiences for your visitors.",
-                  features: ["UI/UX Design", "Brand Identity", "Wireframing", "Prototyping"]
-                },
-                {
-                  icon: <Zap className="w-8 h-8" />,
-                  title: "Web Applications",
-                  desc: "Powerful custom web apps built with modern frameworks. Scalable solutions for your unique business needs.",
-                  features: ["Custom Features", "API Integration", "Cloud Hosting", "Real-time Updates"]
-                },
-                {
-                  icon: <ShoppingCart className="w-8 h-8" />,
-                  title: "Dashboards",
-                  desc: "Dynamic dashboards and engaging promotional displays to showcase your data and marketing content effectively.",
-                  features: ["Interactive Dashboards", "Promo Widgets", "Real-time Data", "Custom Displays"]
-                },
-                {
-                  icon: <Rocket className="w-8 h-8" />,
-                  title: "Branding & Identity",
-                  desc: "Create a cohesive brand identity including logo design, color palettes, typography, and brand guidelines.",
-                  features: ["Logo Design", "Brand Guide", "Marketing Materials", "Social Media Assets"]
-                },
-                {
-                  icon: <Headphones className="w-8 h-8" />,
-                  title: "Ongoing Support",
-                  desc: "Keep your website running smoothly with regular updates, security patches, backups, and technical support.",
-                  features: ["24/7 Monitoring", "Security Updates", "Performance Optimization", "Bug Fixes"]
-                }
-              ].map((service, i) => (
-                <article key={i} className="bg-white rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-all hover:-translate-y-1 group">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-primary text-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
-                  <p className="text-text-muted mb-4 leading-relaxed">{service.desc}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm text-text-muted">
-                        <CheckCircle2 className="w-4 h-4 text-accent-color flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+              {services.map((service, i) => {
+                const IconComponent = {
+                  Code2,
+                  Palette,
+                  ShoppingCart,
+                  Monitor: ShoppingCart,
+                  Sparkles: Rocket,
+                  Headphones
+                }[service.icon] || Code2;
+                
+                return (
+                  <article key={i} className="bg-white rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-all hover:-translate-y-1 group">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-primary text-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <IconComponent className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
+                    <p className="text-text-muted mb-4 leading-relaxed">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-sm text-text-muted">
+                          <CheckCircle2 className="w-4 h-4 text-accent-color flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -304,26 +294,9 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "CoreFit",
-                  category: "Gym & Fitness",
-                  desc: "Modern website with class booking system and member management portal.",
-                  results: ["Enhanced brand identity", "Majority mobile traffic", "Improved search rankings"],
-                  color: "from-orange-500 to-red-500",
-                  link: "https://maple-mug-web.lovable.app"
-                },
-                {
-                  title: "Maple & Mug",
-                  category: "Cafe & Restaurant",
-                  desc: "Updated menu designs, logo and website for a local artisan cafe.",
-                  results: ["Improved SEO performance", "Increased click-through rate", "Enhanced brand visibility"],
-                  color: "from-amber-600 to-yellow-500",
-                  link: "https://maplecafe.netlify.app/"
-                }
-              ].map((project, i) => (
+              {portfolio.map((project, i) => (
                 <article key={i} className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
-                  <div className={`h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
+                  <div className={`h-48 bg-gradient-to-br from-${project.colorFrom} to-${project.colorTo} relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
                       <div className="text-white text-6xl font-bold opacity-50">{i + 1}</div>
                     </div>
@@ -333,7 +306,7 @@ const Index = () => {
                   <div className="p-8">
                     <div className="text-sm font-semibold text-accent-color mb-2">{project.category}</div>
                     <h3 className="text-2xl font-bold mb-3 text-foreground">{project.title}</h3>
-                    <p className="text-text-muted mb-4 leading-relaxed">{project.desc}</p>
+                    <p className="text-text-muted mb-4 leading-relaxed">{project.description}</p>
                     <div className="space-y-2 mb-4">
                       <h4 className="font-semibold text-sm text-foreground">Key Results:</h4>
                       {project.results.map((result, idx) => (
@@ -373,46 +346,21 @@ const Index = () => {
               <div className="hidden md:block absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20" />
               
               <div className="grid md:grid-cols-5 gap-8">
-                {[
-                  {
-                    step: "01",
-                    title: "Discovery",
-                    desc: "We learn about your business, goals, target audience, and project requirements.",
-                    icon: "🔍"
-                  },
-                  {
-                    step: "02",
-                    title: "Design",
-                    desc: "Our designers create beautiful mockups and prototypes for your review and approval.",
-                    icon: "🎨"
-                  },
-                  {
-                    step: "03",
-                    title: "Development",
-                    desc: "We build your website or app using modern technologies and best practices.",
-                    icon: "⚙️"
-                  },
-                  {
-                    step: "04",
-                    title: "Launch",
-                    desc: "After thorough testing, we launch your project and ensure everything runs smoothly.",
-                    icon: "🚀"
-                  },
-                  {
-                    step: "05",
-                    title: "Support",
-                    desc: "We provide ongoing maintenance, updates, and optimization to keep you ahead.",
-                    icon: "🛡️"
-                  }
-                ].map((phase, i) => (
+                {processSteps.map((phase, i) => (
                   <div key={i} className="relative">
                     <div className="bg-white rounded-2xl p-6 shadow-soft border border-border hover:shadow-elevated transition-all text-center">
                       <div className="w-16 h-16 rounded-full bg-gradient-primary text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10">
-                        {phase.step}
+                        {String(phase.step).padStart(2, '0')}
                       </div>
-                      <div className="text-4xl mb-3">{phase.icon}</div>
+                      <div className="text-4xl mb-3">
+                        {phase.icon === 'Search' && '🔍'}
+                        {phase.icon === 'Palette' && '🎨'}
+                        {phase.icon === 'Code' && '⚙️'}
+                        {phase.icon === 'Rocket' && '🚀'}
+                        {phase.icon === 'Headphones' && '🛡️'}
+                      </div>
                       <h3 className="text-xl font-bold mb-2 text-foreground">{phase.title}</h3>
-                      <p className="text-sm text-text-muted leading-relaxed">{phase.desc}</p>
+                      <p className="text-sm text-text-muted leading-relaxed">{phase.description}</p>
                     </div>
                   </div>
                 ))}
@@ -445,36 +393,14 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Sarah Mitchell",
-                  role: "CEO, CoreFit",
-                  company: "CoreFit",
-                  text: "Web Studio transformed our outdated website into a modern, user-friendly experience. The new brand identity and design have significantly improved our member engagement!",
-                  rating: 5
-                },
-                {
-                  name: "Emily Rodriguez",
-                  role: "Owner, Maple & Mug",
-                  company: "Maple & Mug",
-                  text: "Working with Web Studio was fantastic. They didn't just redesign our menu and logo—they created a complete brand experience that truly represents our cafe.",
-                  rating: 4
-                },
-                {
-                  name: "David Park",
-                  role: "Director, InnovateTech",
-                  company: "InnovateTech",
-                  text: "Best investment we've made in our digital presence. Web Studio's ongoing support and optimization has kept our site performing at peak levels month after month.",
-                  rating: 5
-                }
-              ].map((testimonial, i) => (
+              {testimonials.map((testimonial, i) => (
                 <article key={i} className="bg-secondary rounded-2xl p-6 shadow-soft border border-border hover:shadow-elevated transition-all">
                   <div className="flex gap-1 text-yellow-400 mb-4">
                     {[...Array(testimonial.rating)].map((_, idx) => (
                       <Star key={idx} className="w-5 h-5 fill-current" />
                     ))}
                   </div>
-                  <p className="text-text-muted mb-6 leading-relaxed italic">"{testimonial.text}"</p>
+                  <p className="text-text-muted mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-gradient-primary text-white flex items-center justify-center font-bold">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
@@ -491,8 +417,8 @@ const Index = () => {
             <div className="mt-12 text-center">
               <p className="text-text-muted mb-4">Trusted by businesses of all sizes</p>
               <div className="flex flex-wrap justify-center items-center gap-8 opacity-50">
-                {["CoreFit", "Maple & Mug", "InnovateTech"].map((company, i) => (
-                  <div key={i} className="text-2xl font-bold text-foreground">{company}</div>
+                {testimonials.map((testimonial, i) => (
+                  <div key={i} className="text-2xl font-bold text-foreground">{testimonial.company}</div>
                 ))}
               </div>
             </div>
@@ -510,46 +436,7 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {[
-                {
-                  name: "Starter",
-                  price: "£250",
-                  desc: "Perfect for small businesses and startups",
-                  features: [
-                    "5-page custom website",
-                    "Mobile responsive design",
-                    "SEO optimization",
-                    "Contact form integration"
-                  ],
-                  popular: false
-                },
-                {
-                  name: "Professional",
-                  price: "£500",
-                  desc: "Ideal for growing businesses",
-                  features: [
-                    "10-page custom website",
-                    "Advanced animations",
-                    "Advanced SEO",
-                    "Social media integration",
-                    "Custom graphics & imagery",
-                    "Performance optimization"
-                  ],
-                  popular: true
-                },
-                {
-                  name: "Enterprise",
-                  price: "£750+",
-                  desc: "For complex projects and large businesses",
-                  features: [
-                    "Unlimited pages",
-                    "Custom web application",
-                    "API integrations",
-                    "Custom features"
-                  ],
-                  popular: false
-                }
-              ].map((plan, i) => (
+              {pricing.map((plan, i) => (
                 <article key={i} className={`bg-white rounded-3xl p-8 shadow-soft border-2 ${plan.popular ? 'border-accent-color shadow-glow' : 'border-border'} hover:shadow-elevated transition-all relative`}>
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-accent-color text-white text-sm font-bold rounded-full shadow-lg">
@@ -560,7 +447,7 @@ const Index = () => {
                   <div className="mb-4">
                     <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                   </div>
-                  <p className="text-text-muted mb-6">{plan.desc}</p>
+                  <p className="text-text-muted mb-6">{plan.description}</p>
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm">
@@ -577,7 +464,7 @@ const Index = () => {
                         : 'bg-secondary text-foreground hover:bg-border'
                     }`}
                   >
-                    Get Started
+                    {plan.ctaText}
                   </button>
                 </article>
               ))}
@@ -731,10 +618,10 @@ const Index = () => {
                 </div>
                 <button
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isEmailLoading}
                   className="w-full px-8 py-4 rounded-full bg-accent-color text-white font-semibold text-lg shadow-elevated hover:bg-accent-dark transition-all hover:shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                  {isLoading ? "Sending..." : "Send Message"}
+                  {isEmailLoading ? "Sending..." : "Send Message"}
                 </button>
               </form>
 

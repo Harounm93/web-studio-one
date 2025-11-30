@@ -1,0 +1,168 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Site Settings - Single file for hero, about, contact
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Site Configuration"
+        name: "site"
+        file: "content/settings/site-settings.md"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Headline", name: "headline", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Primary CTA Text", name: "primaryCTA", widget: "string"}
+              - {label: "Secondary CTA Text", name: "secondaryCTA", widget: "string"}
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "Value", name: "value", widget: "string"}
+          
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Mission Title", name: "missionTitle", widget: "string"}
+              - {label: "Mission Paragraph 1", name: "missionPara1", widget: "text"}
+              - {label: "Mission Paragraph 2", name: "missionPara2", widget: "text"}
+              - {label: "Mission Paragraph 3", name: "missionPara3", widget: "text"}
+              - label: "Team Stats"
+                name: "teamStats"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "string"}
+                  - {label: "Color", name: "color", widget: "string"}
+              - label: "Why Trust Us"
+                name: "whyTrust"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "desc", widget: "text"}
+          
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Address Line 1", name: "address1", widget: "string"}
+              - {label: "Address Line 2", name: "address2", widget: "string"}
+              - {label: "Address Line 3", name: "address3", widget: "string"}
+              - label: "Office Hours"
+                name: "hours"
+                widget: "list"
+                fields:
+                  - {label: "Day", name: "day", widget: "string"}
+                  - {label: "Hours", name: "hours", widget: "string"}
+
+      - label: "Company Information"
+        name: "company"
+        file: "content/settings/company-info.md"
+        fields:
+          - {label: "Company Name", name: "companyName", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false}
+              - {label: "Instagram", name: "instagram", widget: "string", required: false}
+              - {label: "Dribbble", name: "dribbble", widget: "string", required: false}
+
+  # Portfolio Collection
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Results"
+        name: "results"
+        widget: "list"
+        field: {label: "Result", name: "result", widget: "string"}
+      - {label: "Gradient Color (from)", name: "colorFrom", widget: "string", hint: "e.g., orange-500"}
+      - {label: "Gradient Color (to)", name: "colorTo", widget: "string", hint: "e.g., red-500"}
+      - {label: "Live Site Link", name: "link", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}
+
+  # Services Collection
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{order}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Icon Name", name: "icon", widget: "select", options: ["Code2", "Palette", "ShoppingCart", "Monitor", "Sparkles", "Headphones"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        field: {label: "Feature", name: "feature", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}
+
+  # Testimonials Collection
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Client Name", name: "name", widget: "string"}
+      - {label: "Role", name: "role", widget: "string"}
+      - {label: "Company", name: "company", widget: "string"}
+      - {label: "Quote", name: "quote", widget: "text"}
+      - {label: "Rating", name: "rating", widget: "number", default: 5, value_type: "int", min: 1, max: 5}
+      - {label: "Avatar", name: "avatar", widget: "image", required: false}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}
+
+  # Pricing Collection
+  - name: "pricing"
+    label: "Pricing"
+    folder: "content/pricing"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Package Name", name: "name", widget: "string"}
+      - {label: "Price", name: "price", widget: "string", hint: "e.g., £250 or £750+"}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        field: {label: "Feature", name: "feature", widget: "string"}
+      - {label: "Popular/Highlighted", name: "popular", widget: "boolean", default: false}
+      - {label: "CTA Button Text", name: "ctaText", widget: "string", default: "Get Started"}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}
+
+  # Process Steps Collection
+  - name: "process"
+    label: "Process Steps"
+    folder: "content/process"
+    create: true
+    slug: "{{order}}-{{slug}}"
+    fields:
+      - {label: "Step Number", name: "step", widget: "number", value_type: "int"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Icon Name", name: "icon", widget: "select", options: ["Search", "Palette", "Code", "Rocket", "Headphones"]}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}
+
