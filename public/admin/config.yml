@@ -12,7 +12,7 @@ collections:
     files:
       - label: "Site Configuration"
         name: "site"
-        file: "content/settings/site-settings.md"
+        file: "public/content/settings/site-settings.md"
         fields:
           - label: "Hero Section"
             name: "hero"
@@ -71,7 +71,7 @@ collections:
 
       - label: "Company Information"
         name: "company"
-        file: "content/settings/company-info.md"
+        file: "public/content/settings/company-info.md"
         fields:
           - {label: "Company Name", name: "companyName", widget: "string"}
           - {label: "Tagline", name: "tagline", widget: "string"}
@@ -87,7 +87,7 @@ collections:
   # Portfolio Collection
   - name: "portfolio"
     label: "Portfolio"
-    folder: "content/portfolio"
+    folder: "public/content/portfolio"
     create: true
     slug: "{{slug}}"
     fields:
@@ -107,7 +107,7 @@ collections:
   # Services Collection
   - name: "services"
     label: "Services"
-    folder: "content/services"
+    folder: "public/content/services"
     create: true
     slug: "{{order}}-{{slug}}"
     fields:
@@ -123,7 +123,7 @@ collections:
   # Testimonials Collection
   - name: "testimonials"
     label: "Testimonials"
-    folder: "content/testimonials"
+    folder: "public/content/testimonials"
     create: true
     slug: "{{slug}}"
     fields:
@@ -138,7 +138,7 @@ collections:
   # Pricing Collection
   - name: "pricing"
     label: "Pricing"
-    folder: "content/pricing"
+    folder: "public/content/pricing"
     create: true
     slug: "{{slug}}"
     fields:
@@ -156,7 +156,7 @@ collections:
   # Process Steps Collection
   - name: "process"
     label: "Process Steps"
-    folder: "content/process"
+    folder: "public/content/process"
     create: true
     slug: "{{order}}-{{slug}}"
     fields:

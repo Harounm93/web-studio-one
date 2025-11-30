@@ -114,9 +114,9 @@ https://yoursite.com/admin
 
 ### Content Files
 
-All content is stored as markdown files in the `content/` directory:
+All content is stored as markdown files in the `public/content/` directory:
 ```
-content/
+public/content/
 ├── settings/       # Site and company settings
 ├── portfolio/      # Portfolio projects
 ├── services/       # Service offerings
