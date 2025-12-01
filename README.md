@@ -104,6 +104,13 @@ https://yoursite.com/admin
 
 ### Setup for Production
 
+**Option A: Vercel (Recommended)**
+1. Deploy to Vercel (see Deployment section below)
+2. Add GitHub OAuth credentials to environment variables
+3. Access `/admin` and login with GitHub
+4. Start editing!
+
+**Option B: Netlify**
 1. Deploy to Netlify
 2. Enable Netlify Identity in dashboard
 3. Enable Git Gateway
@@ -187,6 +194,95 @@ Fully responsive across all devices:
 - Desktop (1200px+)
 - Tablet (768px - 1199px)
 - Mobile (< 768px)
+
+## 🚀 Deployment to Vercel
+
+This project is configured for deployment to Vercel with full CMS support.
+
+### Prerequisites
+
+1. **GitHub OAuth App** - Create at https://github.com/settings/developers
+   - Application name: `Web Studio CMS`
+   - Homepage URL: `https://your-site.vercel.app`
+   - Authorization callback URL: `https://api.netlify.com/auth/done`
+   - Save Client ID and Client Secret
+
+### Deploy Steps
+
+#### 1. Import to Vercel
+
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **"Add New..."** → **"Project"**
+3. Import your GitHub repository
+4. Vercel will auto-detect Vite settings from `vercel.json`
+
+#### 2. Configure Environment Variables
+
+In Vercel project settings, add these environment variables:
+
+**EmailJS (Required):**
+```
+VITE_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
+VITE_EMAILJS_SERVICE_ID=your_emailjs_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
+```
+
+**GitHub OAuth for CMS (Required):**
+```
+OAUTH_GITHUB_CLIENT_ID=your_github_oauth_client_id
+OAUTH_GITHUB_CLIENT_SECRET=your_github_oauth_client_secret
+```
+
+#### 3. Deploy
+
+Click **"Deploy"** - Vercel will:
+- Install dependencies with `--legacy-peer-deps`
+- Build your project
+- Deploy to a production URL
+
+#### 4. Access CMS
+
+After deployment:
+1. Visit `https://your-site.vercel.app/admin`
+2. Click **"Login with GitHub"**
+3. Authorize the app
+4. Start editing content!
+
+### CMS Authentication
+
+**How it works:**
+- Users authenticate with their GitHub account
+- Must have write access to the repository
+- Changes are committed directly to your repo
+- Vercel auto-deploys on each commit
+
+**Managing CMS Users:**
+- Add collaborators to your GitHub repo
+- They can access `/admin` with their GitHub account
+- No need for separate CMS accounts
+
+### Automatic Deployments
+
+Vercel automatically deploys when you:
+- Push to the main branch
+- Edit content through CMS (commits to GitHub)
+- Merge pull requests
+
+### Custom Domain
+
+To add a custom domain:
+1. Go to Vercel project → Settings → Domains
+2. Add your domain
+3. Update DNS records as instructed
+4. SSL certificate is automatic
+
+### Vercel Benefits
+
+✅ 6,000 build minutes/month (free tier)
+✅ Fast global CDN
+✅ Automatic HTTPS
+✅ Preview deployments for PRs
+✅ Zero configuration needed
 
 ## 🤝 Contributing
 
