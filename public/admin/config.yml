@@ -2,6 +2,9 @@ backend:
   name: github
   repo: Harounm93/web-studio-one
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_domain: e94a1c00-edfc-473d-9aac-d0b933816816.netlify.app
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
