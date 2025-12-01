@@ -4,6 +4,15 @@ export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
+  safelist: [
+    // Portfolio gradient colors - prevents Tailwind from purging dynamic gradient classes
+    {
+      pattern: /^from-(orange|amber|red|yellow|blue|green|purple|pink|indigo)-(400|500|600|700)$/,
+    },
+    {
+      pattern: /^to-(orange|amber|red|yellow|blue|green|purple|pink|indigo)-(400|500|600|700)$/,
+    },
+  ],
   theme: {
     container: {
       center: true,
