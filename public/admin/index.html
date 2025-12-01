@@ -5,10 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
+  <script>
+    // Log CMS loading and errors
+    window.addEventListener('error', function(e) {
+      console.error('CMS Error:', e.error || e.message);
+    });
+    console.log('Loading Decap CMS from:', 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js');
+    console.log('Config should be at:', window.location.origin + '/admin/config.yml');
+  </script>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Log when CMS script loads
+    console.log('Decap CMS script loaded');
+    console.log('window.CMS:', typeof window.CMS !== 'undefined' ? 'Available' : 'Not available');
+  </script>
 </body>
 </html>
 
