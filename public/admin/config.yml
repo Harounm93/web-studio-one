@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Harounm93/web-studio-one
   branch: main
 
 media_folder: "public/images/uploads"
