@@ -6,6 +6,9 @@ results:
   - Improved SEO performance
   - Increased click-through rate
   - Enhanced brand visibility
+  - Enhanced brand identity
+  - Majority mobile traffic
+  - Improved search rankings
 colorFrom: amber-600
 colorTo: yellow-500
 link: https://maplecafe.netlify.app/

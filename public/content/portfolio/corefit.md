@@ -1,7 +1,7 @@
 ---
-title: "CoreFit"
-category: "Gym & Fitness"
-description: "Modern website with class booking system and member management portal."
+title: "Artisan Cafe"
+category: "Cafe & Restaurant"
+description: "Modern website with online ordering system and menu showcase."
 results:
   - "Enhanced brand identity"
   - "Majority mobile traffic"
@@ -9,8 +9,8 @@ results:
 colorFrom: "orange-500"
 colorTo: "red-500"
 link: "https://maple-mug-web.lovable.app"
-order: 1
+order: 3
 ---
 
-CoreFit is a modern gym and fitness center that needed a complete digital transformation. We built them a custom website featuring an integrated class booking system and member management portal that streamlined their operations and improved customer experience.
+A modern artisan cafe that needed a complete digital transformation. We built them a custom website featuring an integrated online ordering system and beautiful menu showcase that streamlined their operations and improved customer experience.
 

@@ -51,7 +51,7 @@ Add or edit your portfolio items:
 2. Click "New Portfolio" to add a project
 3. Fill in the fields:
    - **Title**: Project name
-   - **Category**: Type of project (e.g., "Gym & Fitness")
+   - **Category**: Type of project (e.g., "Cafe & Restaurant")
    - **Description**: Brief project description
    - **Results**: Click "Add result" for each achievement
    - **Gradient Colors**: Tailwind color names (e.g., "orange-500")

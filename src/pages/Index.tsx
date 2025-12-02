@@ -293,41 +293,45 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {portfolio.map((project, i) => (
-                <article key={i} className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
-                  <div className={`h-48 bg-gradient-to-br from-${project.colorFrom} to-${project.colorTo} relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <div className="text-white text-6xl font-bold opacity-50">{i + 1}</div>
+            {portfolio.length > 0 && (
+              <div className="max-w-3xl mx-auto">
+                <article className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
+                  <div className="h-64 bg-gradient-to-br from-blue-500 to-purple-500 relative overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <div className="text-5xl md:text-6xl font-bold drop-shadow-lg">{portfolio[0].title}</div>
+                      </div>
                     </div>
-                    {/* Placeholder for project image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
-                  <div className="p-8">
-                    <div className="text-sm font-semibold text-accent-color mb-2">{project.category}</div>
-                    <h3 className="text-2xl font-bold mb-3 text-foreground">{project.title}</h3>
-                    <p className="text-text-muted mb-4 leading-relaxed">{project.description}</p>
-                    <div className="space-y-2 mb-4">
-                      <h4 className="font-semibold text-sm text-foreground">Key Results:</h4>
-                      {project.results.map((result, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-text-muted">
-                          <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
-                          {result}
-                        </div>
-                      ))}
+                  <div className="p-10">
+                    <div className="text-sm font-semibold text-accent-color mb-2">{portfolio[0].category}</div>
+                    <h3 className="text-2xl font-bold mb-3 text-foreground">Modern Café Website Design & Build</h3>
+                    <p className="text-text-muted mb-6 leading-relaxed text-lg">
+                      {portfolio[0].description}
+                    </p>
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-sm text-foreground mb-3">Key Results:</h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {portfolio[0].results.map((result, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm text-text-muted">
+                            <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                            {result}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                     <a 
-                      href={project.link} 
+                      href={portfolio[0].link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-accent-color font-semibold flex items-center gap-2 hover:gap-3 transition-all group-hover:text-accent-dark"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-color text-white font-semibold hover:bg-accent-dark transition-all hover:gap-3"
                     >
-                      View Live Site <ArrowRight className="w-4 h-4" />
+                      View Project <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
                 </article>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
         </section>
 
