@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Menu, X, Code2, Palette, ShoppingCart, Headphones, Rocket, CheckCircle2, ArrowRight, Star, Mail, Phone, MapPin, Zap, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEmailJS } from "@/hooks/useEmailJS";
 import { toast } from "sonner";
 import { useCMSContent } from "@/hooks/useCMSContent";
+import { StructuredData } from "@/components/StructuredData";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,6 +33,31 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-bg">
+      {/* SEO Meta Tags */}
+      <Helmet>
+        <title>Web Studio | Digital Web Agency - Custom Websites & Web Applications</title>
+        <meta name="description" content="Web Studio is a modern digital web agency specializing in custom website design, web development, and web applications for small to mid-sized businesses. We transform your vision into websites that convert." />
+        <meta name="keywords" content="web design, web development, digital agency, website design, web applications, custom websites, e-commerce, branding, SEO" />
+        <link rel="canonical" href="https://webstudiodesigns.netlify.app/" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://webstudiodesigns.netlify.app/" />
+        <meta property="og:title" content="Web Studio | Digital Web Agency - Custom Websites & Web Applications" />
+        <meta property="og:description" content="We build digital experiences that drive results. Custom websites, web applications, and e-commerce solutions for forward-thinking businesses." />
+        <meta property="og:image" content="https://webstudiodesigns.netlify.app/favicon.svg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://webstudiodesigns.netlify.app/" />
+        <meta name="twitter:title" content="Web Studio | Digital Web Agency - Custom Websites & Web Applications" />
+        <meta name="twitter:description" content="We build digital experiences that drive results. Custom websites, web applications, and e-commerce solutions for forward-thinking businesses." />
+        <meta name="twitter:image" content="https://webstudiodesigns.netlify.app/favicon.svg" />
+      </Helmet>
+
+      {/* Structured Data for SEO */}
+      <StructuredData />
+
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border shadow-sm">
         <nav className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
