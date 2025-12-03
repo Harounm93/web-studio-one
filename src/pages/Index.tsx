@@ -88,7 +88,7 @@ const Index = () => {
 
       <main>
         {/* Hero Section */}
-        <section id="top" className="relative overflow-hidden gradient-mesh py-20 md:py-32">
+        <section id="top" className="relative overflow-hidden gradient-mesh pt-10 pb-16 md:pt-12 md:pb-24">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="fade-in">
@@ -96,10 +96,10 @@ const Index = () => {
                   <Zap className="w-4 h-4" />
                   Trusted by businesses nationwide
                 </div>
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-foreground">
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-2 text-foreground">
                   We Build Digital Experiences That <span className="bg-gradient-primary bg-clip-text text-transparent">Drive Results</span>
                 </h1>
-                <p className="text-text-muted text-lg md:text-xl mb-8 leading-relaxed">
+                <p className="text-text-muted text-base md:text-lg mb-8 leading-relaxed">
                   Partner with a digital agency that combines creative design with powerful development. 
                   We transform your vision into websites and web applications that convert visitors into customers.
                 </p>
@@ -262,20 +262,22 @@ const Index = () => {
                 }[service.icon] || Code2;
                 
                 return (
-                  <article key={i} className="bg-white rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-all hover:-translate-y-1 group">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-primary text-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <article key={i} className="bg-white rounded-2xl pt-2 md:pt-3 px-6 pb-6 shadow-soft border border-border hover:shadow-elevated transition-all hover:-translate-y-1 group text-center">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-primary text-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform mx-auto">
                       <IconComponent className="w-8 h-8" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
-                    <p className="text-text-muted mb-4 leading-relaxed">{service.description}</p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-text-muted">
-                          <CheckCircle2 className="w-4 h-4 text-accent-color flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    <h3 className="text-xl font-bold mb-3 text-foreground text-center">{service.title}</h3>
+                    <p className="text-text-muted mb-4 leading-relaxed text-center">{service.description}</p>
+                    <div className="flex justify-center mb-6 md:mb-0">
+                      <ul className="space-y-2 flex flex-col items-start">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-text-muted text-left">
+                            <CheckCircle2 className="w-4 h-4 text-accent-color flex-shrink-0 mt-0.5" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </article>
                 );
               })}
@@ -284,9 +286,9 @@ const Index = () => {
         </section>
 
         {/* Portfolio / Case Studies Section */}
-        <section id="portfolio" className="py-20 bg-white">
+        <section id="portfolio" className="py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Our Work</h2>
               <p className="text-xl text-text-muted">
                 Real projects. Real results. See how we've helped businesses like yours succeed.
@@ -295,27 +297,27 @@ const Index = () => {
 
             {portfolio.length > 0 && (
               <div className="max-w-3xl mx-auto">
-                <article className="bg-white rounded-3xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
-                  <div className="h-64 bg-gradient-to-br from-blue-500 to-purple-500 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
+                <article className="bg-white rounded-2xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden group">
+                  <div className="h-56 bg-gradient-to-br from-blue-500 to-purple-500 relative overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center px-4">
                       <div className="text-center text-white">
-                        <div className="text-5xl md:text-6xl font-bold drop-shadow-lg">{portfolio[0].title}</div>
+                        <div className="text-4xl md:text-6xl font-bold drop-shadow-lg">{portfolio[0].title}</div>
                       </div>
                     </div>
                   </div>
-                  <div className="p-10">
+                  <div className="p-8">
                     <div className="text-sm font-semibold text-accent-color mb-2">{portfolio[0].category}</div>
-                    <h3 className="text-2xl font-bold mb-3 text-foreground">Modern Café Website Design & Build</h3>
-                    <p className="text-text-muted mb-6 leading-relaxed text-lg">
+                    <h3 className="text-xl font-bold mb-3 text-foreground">Modern Café Website Design & Build</h3>
+                    <p className="text-text-muted mb-5 leading-relaxed">
                       {portfolio[0].description}
                     </p>
-                    <div className="mb-6">
+                    <div className="mb-5">
                       <h4 className="font-semibold text-sm text-foreground mb-3">Key Results:</h4>
                       <div className="grid grid-cols-2 gap-3">
                         {portfolio[0].results.map((result, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-sm text-text-muted">
-                            <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
-                            {result}
+                          <div key={idx} className="flex items-start gap-2 text-sm text-text-muted text-left">
+                            <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                            <span>{result}</span>
                           </div>
                         ))}
                       </div>
@@ -336,9 +338,9 @@ const Index = () => {
         </section>
 
         {/* Process Section */}
-        <section id="process" className="py-20 bg-bg-alt">
+        <section id="process" className="py-16 bg-bg-alt">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">How We Work</h2>
               <p className="text-xl text-text-muted">
                 A proven process that delivers results, from concept to launch
@@ -347,38 +349,53 @@ const Index = () => {
 
             <div className="relative">
               {/* Connection Line */}
-              <div className="hidden md:block absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20" />
+              <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20" />
               
-              <div className="grid md:grid-cols-5 gap-8">
-                {processSteps.map((phase, i) => (
-                  <div key={i} className="relative">
-                    <div className="bg-white rounded-2xl p-6 shadow-soft border border-border hover:shadow-elevated transition-all text-center">
-                      <div className="w-16 h-16 rounded-full bg-gradient-primary text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10">
-                        {String(phase.step).padStart(2, '0')}
+              <div className="grid md:grid-cols-5 gap-6">
+                {processSteps.map((phase, i) => {
+                  const gradients = [
+                    'from-blue-500 to-indigo-600',
+                    'from-purple-500 to-pink-600',
+                    'from-indigo-500 to-blue-600',
+                    'from-pink-500 to-rose-600',
+                    'from-blue-600 to-purple-600'
+                  ];
+                  return (
+                    <div key={i} className="relative">
+                      <div className="bg-white rounded-xl shadow-soft border border-border hover:shadow-elevated transition-all overflow-hidden">
+                        <div className={`h-32 bg-gradient-to-br ${gradients[i]} relative overflow-hidden flex items-center justify-center`}>
+                          <div className="text-center text-white">
+                            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-2 text-lg font-bold">
+                              {String(phase.step).padStart(2, '0')}
+                            </div>
+                            <div className="text-3xl">
+                              {phase.icon === 'Search' && '🔍'}
+                              {phase.icon === 'Palette' && '🎨'}
+                              {phase.icon === 'Code' && '⚙️'}
+                              {phase.icon === 'Rocket' && '🚀'}
+                              {phase.icon === 'Headphones' && '🛡️'}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-5 text-center">
+                          <h3 className="text-lg font-bold mb-2 text-foreground">{phase.title}</h3>
+                          <p className="text-sm text-text-muted leading-relaxed">{phase.description}</p>
+                        </div>
                       </div>
-                      <div className="text-4xl mb-3">
-                        {phase.icon === 'Search' && '🔍'}
-                        {phase.icon === 'Palette' && '🎨'}
-                        {phase.icon === 'Code' && '⚙️'}
-                        {phase.icon === 'Rocket' && '🚀'}
-                        {phase.icon === 'Headphones' && '🛡️'}
-                      </div>
-                      <h3 className="text-xl font-bold mb-2 text-foreground">{phase.title}</h3>
-                      <p className="text-sm text-text-muted leading-relaxed">{phase.description}</p>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
-            <div className="mt-16 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 rounded-3xl p-8 md:p-12 text-white text-center shadow-xl">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">Ready to Get Started?</h3>
-              <p className="text-white text-lg md:text-xl mb-6 max-w-2xl mx-auto drop-shadow">
+            <div className="mt-12 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 rounded-2xl p-8 md:p-10 text-white text-center shadow-xl">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">Ready to Get Started?</h3>
+              <p className="text-white text-base md:text-lg mb-5 max-w-2xl mx-auto drop-shadow">
                 Every great project begins with a conversation. Let's discuss your vision and create something amazing together.
               </p>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="px-8 py-4 rounded-full bg-white text-blue-700 font-semibold text-lg shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 hover:scale-105"
+                className="px-7 py-3 rounded-full bg-white text-blue-700 font-semibold text-base shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 hover:scale-105"
               >
                 Book a Free Consultation
               </button>
@@ -490,16 +507,16 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-white">
+        <section id="contact" className="py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-6">
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Let's Build Something Great</h2>
               <p className="text-xl text-text-muted">
                 Ready to transform your digital presence? Get in touch and let's discuss your project.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-5 gap-8">
+            <div className="grid md:grid-cols-5 gap-6 md:gap-8 items-start">
               {/* Contact Form */}
               <form
                 onSubmit={async (e) => {
@@ -531,7 +548,7 @@ const Index = () => {
                     });
                   }
                 }}
-                className="md:col-span-3 bg-white rounded-3xl p-8 shadow-soft border border-border"
+                className="md:col-span-3 bg-white rounded-2xl p-8 shadow-soft border border-border"
               >
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
@@ -630,49 +647,8 @@ const Index = () => {
               </form>
 
               {/* Contact Info */}
-              <div className="md:col-span-2 space-y-6">
-                <div className="bg-gradient-primary rounded-3xl p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-4">Get In Touch</h3>
-                  <p className="text-white/90 mb-6">
-                    Have questions? We're here to help. Reach out through any of these channels.
-                  </p>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Mail className="w-6 h-6 flex-shrink-0 mt-1" />
-                      <div>
-                        <div className="font-semibold mb-1">Email Us</div>
-                        <a href="mailto:digitalstudiodesigners@gmail.com" className="text-white/90 hover:text-white">
-                          digitalstudiodesigners@gmail.com
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <Phone className="w-6 h-6 flex-shrink-0 mt-1" />
-                      <div>
-                        <div className="font-semibold mb-1">Call Us</div>
-                        <a href="tel:+1234567890" className="text-white/90 hover:text-white">
-                          +1 (234) 567-890
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-6 h-6 flex-shrink-0 mt-1" />
-                      <div>
-                        <div className="font-semibold mb-1">Visit Us</div>
-                        <div className="text-white/90">
-                          123 Digital Avenue<br />
-                          Tech District, CA 94000<br />
-                          United States
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-secondary rounded-3xl p-8 border border-border">
+              <div className="md:col-span-2 space-y-3.5 flex flex-col">
+                <div className="bg-secondary rounded-2xl p-6 border border-border shadow-soft">
                   <h4 className="font-bold text-lg mb-3 text-foreground">Office Hours</h4>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
@@ -695,7 +671,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="bg-secondary rounded-3xl p-8 border border-border">
+                <div className="bg-secondary rounded-2xl p-6 border border-border shadow-soft">
                   <h4 className="font-bold text-lg mb-3 text-foreground">Email Us</h4>
                   <div className="flex items-center gap-3 mb-2">
                     <Mail className="w-5 h-5 text-accent-color" />
@@ -762,10 +738,8 @@ const Index = () => {
             <div>
               <h4 className="font-bold mb-4">Connect</h4>
               <ul className="space-y-2 text-sm text-white/70">
-                <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">TikTok</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Dribbble</a></li>
               </ul>
             </div>
           </div>
