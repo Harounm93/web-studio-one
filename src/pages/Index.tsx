@@ -6,6 +6,7 @@ import { useEmailJS } from "@/hooks/useEmailJS";
 import { toast } from "sonner";
 import { useCMSContent } from "@/hooks/useCMSContent";
 import { StructuredData } from "@/components/StructuredData";
+import CookieConsent from "react-cookie-consent";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -780,6 +781,56 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Consent Banner */}
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        declineButtonText="Decline"
+        enableDeclineButton
+        cookieName="webStudioCookieConsent"
+        style={{
+          background: "linear-gradient(to right, rgb(37 99 235), rgb(29 78 216), rgb(126 34 206))",
+          padding: "20px",
+          alignItems: "center",
+        }}
+        buttonStyle={{
+          background: "white",
+          color: "rgb(29 78 216)",
+          fontSize: "14px",
+          fontWeight: "600",
+          padding: "12px 32px",
+          borderRadius: "9999px",
+          border: "none",
+          cursor: "pointer",
+          marginRight: "12px",
+        }}
+        declineButtonStyle={{
+          background: "transparent",
+          color: "white",
+          fontSize: "14px",
+          fontWeight: "600",
+          padding: "12px 32px",
+          borderRadius: "9999px",
+          border: "2px solid white",
+          cursor: "pointer",
+        }}
+        contentStyle={{
+          flex: "1 0 300px",
+          margin: "0 20px 0 0",
+        }}
+        expires={365}
+        onAccept={() => {
+          console.log("User accepted cookies");
+        }}
+        onDecline={() => {
+          console.log("User declined cookies");
+        }}
+      >
+        <span style={{ fontSize: "15px", lineHeight: "1.6" }}>
+          We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+        </span>
+      </CookieConsent>
     </div>
   );
 };

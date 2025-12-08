@@ -92,6 +92,17 @@ Comprehensive contact form with:
 - Social media links
 - Copyright and legal links
 
+### 10. **Cookie Consent Banner**
+- GDPR-compliant cookie consent implementation
+- Stylish banner matching Web Studio branding
+- Both "Accept" and "Decline" buttons for user choice
+- 365-day consent storage
+- Console logging for accept/decline actions
+- Customizable for client projects
+- **Template Available**: See [COOKIE_BANNER_TEMPLATE.md](COOKIE_BANNER_TEMPLATE.md) for reusable implementation guide
+
+**Standard Feature for Client Projects**: All Web Studio client websites include full GDPR-compliant cookie consent functionality with both accept and decline options to ensure compliance and build user trust.
+
 ## 🎨 Design System
 
 ### Color Palette
@@ -211,6 +222,7 @@ Modify the pricing array in the Pricing section with your actual packages and pr
 - **shadcn/ui** - Component library
 - **Lucide React** - Icons
 - **React Router** - Navigation
+- **react-cookie-consent** - Cookie consent banner
 
 ## 📞 Support
 
