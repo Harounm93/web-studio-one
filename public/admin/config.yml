@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Harounm93/web-studio-one
   branch: main
-  base_url: https://web-studio-one-gamma.vercel.app
+  base_url: https://www.webstudiodesigns.co.uk
   auth_endpoint: api/auth
 
 media_folder: "public/images/uploads"

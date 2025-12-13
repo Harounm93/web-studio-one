@@ -214,8 +214,31 @@ To give others CMS access:
 
 **Fix:**
 1. Verify GitHub OAuth Client ID and Secret in Vercel
-2. Check callback URL in GitHub OAuth app: `https://api.netlify.com/auth/done`
+2. Check callback URL in GitHub OAuth app matches your domain: `https://www.yoursite.com/api/auth`
 3. Ensure you have write access to the repository
+
+### Issue: /admin Returns 404 NOT_FOUND
+
+**Error:** `404: NOT_FOUND - Code: DEPLOYMENT_NOT_FOUND`
+
+**Cause:** This happens when using a custom domain but the CMS config still points to the old Vercel URL (e.g., `your-project.vercel.app`).
+
+**Fix:**
+1. Update `public/admin/config.yml` - change `base_url` to your custom domain
+2. Update `dist/admin/config.yml` - same change (this is the deployed version)
+3. Ensure `vercel.json` has the proper rewrites (see Custom Domain Setup section)
+4. Update GitHub OAuth app callback URL to: `https://www.yoursite.com/api/auth`
+5. Commit, push, and wait for Vercel to redeploy
+
+**Example config.yml fix:**
+```yaml
+backend:
+  name: github
+  repo: your-username/your-repo
+  branch: main
+  base_url: https://www.yoursite.com  # ← Must match your domain!
+  auth_endpoint: api/auth
+```
 
 ### Issue: Grey Portfolio Headers
 
@@ -252,17 +275,78 @@ Name: @
 Value: 76.76.21.21
 ```
 
-### Update GitHub OAuth
+### ⚠️ CRITICAL: Update CMS Configuration
 
-1. Go to GitHub OAuth app
-2. Update **Homepage URL** to your custom domain
-3. Save
+When switching to a custom domain, you **MUST** update the CMS config files to point to your new domain:
+
+**Step 1: Update `public/admin/config.yml`**
+
+Change the `base_url` to your custom domain:
+
+```yaml
+backend:
+  name: github
+  repo: your-username/your-repo
+  branch: main
+  base_url: https://www.yoursite.com  # ← Update this!
+  auth_endpoint: api/auth
+```
+
+**Step 2: Update `dist/admin/config.yml`**
+
+Make the same change in the dist folder (this is the deployed version):
+
+```yaml
+backend:
+  name: github
+  repo: your-username/your-repo
+  branch: main
+  base_url: https://www.yoursite.com  # ← Update this!
+  auth_endpoint: api/auth
+```
+
+**Step 3: Verify `vercel.json` has proper rewrites**
+
+Ensure your `vercel.json` includes these rewrites for the admin panel and API:
+
+```json
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install --legacy-peer-deps",
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/admin/", "destination": "/admin/index.html" },
+    { "source": "/api/auth", "destination": "/api/auth" },
+    { "source": "/((?!admin|api).*)", "destination": "/index.html" }
+  ]
+}
+```
+
+### Update GitHub OAuth App
+
+1. Go to GitHub OAuth app settings: https://github.com/settings/developers
+2. Update **Homepage URL** to: `https://www.yoursite.com`
+3. Update **Authorization callback URL** to: `https://www.yoursite.com/api/auth`
+4. Save changes
 
 ### Wait for SSL
 
 - Vercel automatically provisions SSL certificate
 - Usually takes 5-10 minutes
 - Your site will be accessible via HTTPS
+
+### Commit and Deploy
+
+After making these changes:
+```bash
+git add .
+git commit -m "Update CMS config for custom domain"
+git push
+```
+
+Wait for Vercel to redeploy (~2 minutes), then test `/admin` on your custom domain.
 
 ---
 
@@ -390,6 +474,15 @@ Use this checklist for every deployment:
 - [ ] Team members added to repo
 - [ ] Documentation updated
 
+### Custom Domain Checklist (if applicable)
+- [ ] DNS records configured in domain provider
+- [ ] `public/admin/config.yml` updated with custom domain `base_url`
+- [ ] `dist/admin/config.yml` updated with custom domain `base_url`
+- [ ] `vercel.json` has admin and api rewrites configured
+- [ ] GitHub OAuth callback URL updated to `https://www.yoursite.com/api/auth`
+- [ ] SSL certificate provisioned (automatic, ~5-10 min)
+- [ ] `/admin` accessible on custom domain
+
 ---
 
 ## 🎉 Success!
@@ -422,4 +515,5 @@ Happy building! 🚀
 
 *Last updated: December 2024*
 *Tested with: React 18, Vite 5, Vercel v32*
+*Custom domain CMS fix added: December 2024*
 
