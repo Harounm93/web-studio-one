@@ -1,14 +1,14 @@
 ---
-name: "Starter"
-price: "£250"
-description: "Perfect for small businesses and startups"
+name: Starter
+price: £100
+description: Perfect for small businesses and startups
 features:
-  - "5-page custom website"
-  - "Mobile responsive design"
-  - "SEO optimization"
-  - "Contact form integration"
+  - 5-page custom website
+  - Mobile responsive design
+  - SEO optimization
+  - Contact form integration
 popular: false
-ctaText: "Get Started"
+ctaText: Get Started
 order: 1
 ---
 
