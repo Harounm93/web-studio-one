@@ -1,16 +1,15 @@
 ---
-name: "Professional"
-price: "£500"
-description: "Ideal for growing businesses"
+name: Professional
+price: £250
+description: Ideal for growing businesses
 features:
-  - "10-page custom website"
-  - "Advanced animations"
-  - "Advanced SEO"
-  - "Social media integration"
-  - "Custom graphics & imagery"
-  - "Performance optimization"
+  - Advanced animations
+  - Advanced SEO
+  - Social media integration
+  - Custom graphics & imagery
+  - Performance optimization
 popular: true
-ctaText: "Get Started"
+ctaText: Get Started
 order: 2
 ---
 
